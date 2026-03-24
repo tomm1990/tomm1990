@@ -251,53 +251,6 @@ mindmap
       ChatGPT
 ```
 
-### Platform map (illustrative)
-
-```mermaid
-flowchart TB
-    subgraph ide["IDE + MCP"]
-        MCP[MCP to Figma / tools]
-    end
-    subgraph clients["Clients"]
-        U[Web app]
-        O[Ops tooling]
-    end
-    subgraph edge["Edge"]
-        CF[CloudFront]
-        R53[Route 53]
-    end
-    subgraph compute["Compute"]
-        L[Lambda]
-        SF[Step Functions]
-    end
-    subgraph data["Data"]
-        S3[(S3)]
-    end
-    MCP --> U
-    U --> CF --> L
-    O --> R53 --> SF
-    L --> S3
-    SF --> S3
-```
-
-### Release-style history (illustrative git graph)
-
-```mermaid
-gitGraph
-    commit id: "main: ADR baseline"
-    branch platform_risk
-    checkout platform_risk
-    commit id: "risk SLO & HTTP contracts"
-    commit id: "tests: edge payloads"
-    checkout main
-    merge platform_risk
-    branch hotfix_crm
-    checkout hotfix_crm
-    commit id: "CRM picklist guard"
-    checkout main
-    merge hotfix_crm
-```
-
 ### Public contribution activity (live GitHub data)
 
 <div align="center">
