@@ -254,7 +254,7 @@ mindmap
 ### Public contribution activity (live GitHub data)
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=tomm1990&theme=github&hide_border=true&area=true" alt="GitHub contribution activity graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=tomm1990&theme=github-light&hide_border=true&area=true" alt="GitHub contribution activity graph" />
 </div>
 
 ---
