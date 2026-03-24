@@ -5,11 +5,9 @@
 
 **Tech leader**, **AI engineer**, and **software architect**. I own the thread from **what users see** to what runs in prod: **APIs**, **data flows**, **Salesforce-shaped** integrations, and the boring stuff that keeps services alive—**metrics**, **deployments**, **failure modes**. “Architecture” isn’t a diagram; it’s what you debug at 2 a.m. when something subtle breaks in **serialization** or **CRM** sync.
 
-Right now I’m **shipping new products** with **Figma** in the loop and **MCP servers** hooked into my **IDE**, so design tokens and code don’t drift into two competing truths.
+My main lane is **TypeScript**, **React**, and **Node**—that’s where most day-to-day product work happens. I also go deep in **enterprise Java** and **Salesforce**—**mortgage** flows, **risk** calls, regulated data, and systems that have to stay **observable** and **safe to change** when the domain throws another edge case.
 
-Day to day I live in **TypeScript/React** on one side and **enterprise Java** on the other, with **Salesforce** as the third character in the play—**mortgage** flows, **risk** calls, regulated data, and systems that have to stay **observable** and **safe to change** when the domain throws another edge case.
-
-- **Product & delivery** — Shipped beats clever. Clear scope, iterations you can review, and outcomes you can point at—not refactors nobody asked for.
+- **Product & delivery** — Shipped beats clever. Clear scope, iterations you can review, and outcomes you can point at—not refactors nobody asked for. **Figma** design **tokens** and implementation stay aligned when the **IDE** can talk to the same toolchain (**MCP**-linked workflows), so design and code don’t drift into two competing truths.
 - **Architecture & reliability** — **HTTP** boundaries, versioning traps, performance when it matters, and production reality: **CI**, **metrics**, **what happens when the call fails**.
 - **Lending & CRM** — Loan lifecycles, **CRM** objects and picklists, and being strict about **nulls** and unknowns so we never “accidentally” serialize the wrong default into Salesforce.
 - **Risk & decisioning** — Mortgage **risk** engines: domain logic you can test, **HTTP** contracts you can trust, and defensive code when the request is half-empty—because it will be.
@@ -84,11 +82,12 @@ Day to day I live in **TypeScript/React** on one side and **enterprise Java** on
 ![Cert-Manager](https://img.shields.io/badge/Cert--Manager-007EC6?style=flat&logo=letsencrypt&logoColor=white)
 ![Vultr](https://img.shields.io/badge/Vultr-007BFC?style=flat&logo=vultr)
 
-*Recent **AWS** work (the stuff that actually shows up in my console): **Firewall Manager**, **Systems Manager**, **CloudWatch**, **Lambda**, **S3**, **CloudFront**, **Route 53**, **Timestream**, **ElastiCache**, **MemoryDB**, **Step Functions**, **Amplify**, **EFS**, **Storage Gateway**—plus the usual suspects elsewhere in the stack (**SQS**, **K8s**, etc.).*
+*Recent **AWS** work (the stuff that actually shows up in my console): **Firewall Manager**, **Systems Manager**, **CloudWatch**, **Lambda**, **S3**, **CloudFront**, **Route 53**, **Step Functions**, **Amplify**, **EFS**, **Storage Gateway**—plus the usual suspects elsewhere in the stack (**SQS**, **K8s**, etc.).*
 
 **CI/CD, build & collaboration**  
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
+![Argo CD](https://img.shields.io/badge/Argo_CD-EF7B4D?style=flat&logo=argo&logoColor=white)
 ![Gradle](https://img.shields.io/badge/Gradle-02303A?style=flat&logo=gradle&logoColor=white)
 ![Jenkins](https://img.shields.io/badge/Jenkins-D24939?style=flat&logo=jenkins&logoColor=white)
 ![CircleCI](https://img.shields.io/badge/CircleCI-343434?style=flat&logo=circleci&logoColor=white)
@@ -103,6 +102,15 @@ Day to day I live in **TypeScript/React** on one side and **enterprise Java** on
 ![Robo 3T](https://img.shields.io/badge/Robo_3T-3FA037?style=flat)
 ![PhpStorm](https://img.shields.io/badge/PhpStorm-000000?style=flat&logo=phpstorm&logoColor=white)
 ![Zsh](https://img.shields.io/badge/Zsh-1E9F89?style=flat&logo=gnubash&logoColor=white)
+
+### Automations & delivery pipelines
+
+Automation is how **intent** turns into **software in production** without heroics: repeatable **CI**, controlled **CD**, **GitOps** when the cluster is the source of truth, and pipelines teams can **read** and **fix**—not snowflake scripts nobody dares touch.
+
+- **Continuous integration** — **GitHub Actions**, **Jenkins**, **CircleCI**; **Gradle** / **npm** pipelines; **lint**, **test**, and **build** artifacts as **gates** before merge.
+- **Continuous delivery & GitOps** — **Argo CD** for declarative rollout to **Kubernetes**; **Helm** charts and **environment** promotion; parity between **dev**, **stage**, and **prod** where it matters.
+- **Branching & quality** — **PR** checks, protected branches, **Conventional Commits** and ticket discipline so **CI** failures are **actionable** and **releases** are traceable.
+- **Beyond the happy path** — **rollbacks**, **manual approvals** where regulation or risk demands it, and **observability** so when something breaks you know **which** change to suspect.
 
 **Integration patterns**  
 ![REST](https://img.shields.io/badge/REST-FF6600?style=flat&logo=rest&logoColor=white)
@@ -126,8 +134,6 @@ Day to day I live in **TypeScript/React** on one side and **enterprise Java** on
 | `devops_infra` | **Helm**, **Kubernetes**, env wiring: **ingress**, **TLS**, getting **risk** / **CRM** URLs consistent across **dev/stage/prod**, **secrets** done sensibly, and **CI** artifacts actually landing where the cluster expects them. |
 | `frontend` | **React** / **TypeScript** apps for **lending** and **ops**: **REST**-backed flows, **CRM**-honest state, same vocabulary as the **Java** and **serverless** pieces. |
 | `docs` | **OpenAPI**, **Postman**, **Markdown**, **Confluence**—error shapes, integration semantics, **TLS** / **OAuth** notes. One place so **eng**, **architecture**, and **QA** aren’t arguing from three different PDFs. |
-
-*Private org—names only, no links. Tweak labels if your team calls these something else.*
 
 ---
 
@@ -266,15 +272,12 @@ flowchart TB
     end
     subgraph data["Data"]
         S3[(S3)]
-        TS[(Timestream)]
-        C[ElastiCache]
     end
     MCP --> U
     U --> CF --> L
     O --> R53 --> SF
     L --> S3
-    SF --> C
-    L --> TS
+    SF --> S3
 ```
 
 ### Release-style history (illustrative git graph)
