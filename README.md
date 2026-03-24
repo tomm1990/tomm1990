@@ -1,8 +1,7 @@
 <!-- markdownlint-disable-file MD013 MD033 MD041 -->
 
 💡 Open to ideas<br>
-🚫 Closed to nonsense<br>
-*If it works on my machine, I’ll still make it work on yours—then we’ll argue about what “done” means.*
+🚫 Closed to nonsense
 
 **Tech leader**, **AI engineer**, and **software architect**. I own the thread from **what users see** to what runs in prod: **APIs**, **data flows**, **Salesforce-shaped** integrations, and the boring stuff that keeps services alive—**metrics**, **deployments**, **failure modes**. “Architecture” isn’t a diagram; it’s what you debug at 2 a.m. when something subtle breaks in **serialization** or **CRM** sync.
 
@@ -85,6 +84,8 @@ Day to day I live in **TypeScript/React** on one side and **enterprise Java** on
 ![Cert-Manager](https://img.shields.io/badge/Cert--Manager-007EC6?style=flat&logo=letsencrypt&logoColor=white)
 ![Vultr](https://img.shields.io/badge/Vultr-007BFC?style=flat&logo=vultr)
 
+*Recent **AWS** work (the stuff that actually shows up in my console): **Firewall Manager**, **Systems Manager**, **CloudWatch**, **Lambda**, **S3**, **CloudFront**, **Route 53**, **Timestream**, **ElastiCache**, **MemoryDB**, **Step Functions**, **Amplify**, **EFS**, **Storage Gateway**—plus the usual suspects elsewhere in the stack (**SQS**, **K8s**, etc.).*
+
 **CI/CD, build & collaboration**  
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
@@ -109,6 +110,11 @@ Day to day I live in **TypeScript/React** on one side and **enterprise Java** on
 ![OAuth 2.0](https://img.shields.io/badge/OAuth_2.0-EB5424?style=flat&logo=oauth&logoColor=white)
 ![JSON](https://img.shields.io/badge/JSON-000000?style=flat&logo=json&logoColor=white)
 
+**LLM tools (ChatGPT, Claude, Codex)**  
+![ChatGPT](https://img.shields.io/badge/ChatGPT-412991?style=flat&logo=openai&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-D4A574?style=flat&logo=anthropic&logoColor=white)
+![Codex](https://img.shields.io/badge/OpenAI_Codex-412991?style=flat&logo=openai&logoColor=white)
+
 ---
 
 ## ⭐ Featured work (private / internal repositories)
@@ -129,6 +135,8 @@ Day to day I live in **TypeScript/React** on one side and **enterprise Java** on
 
 This is part of the job, not a party trick. I use **AI** like a fast **senior pair**: great at search, scaffolding, and bouncing across files—**not** an oracle. Nothing ships without **my** eyes on the diff, **tests** where they matter, **linters** where we agreed them, and the same bar as any other change (**production** is off-limits unless someone explicitly says go).
 
+Alongside **Cursor**, I reach for **ChatGPT**, **Anthropic Claude**, and **OpenAI Codex** when I want a second brain: sketch a refactor, untangle an error message, or draft something I’ll still edit before it touches a repo. Same rule: **models suggest**; **I** decide what merges.
+
 | Area | Tools & setup | What I actually do | Where I don’t let the model wing it |
 | :--- | :--- | :--- | :--- |
 | **IDE work** | [**Cursor**](https://cursor.com/) (agent / composer), multi-file edits, **terminal**, repo-wide search | **Java** refactors (**CRM** builders, mortgage handlers, **risk** paths), **TypeScript/React**, **Gradle** nits, long **stack traces**—plus test scaffolding and “what if we restructured this?” before I touch half the tree. | I **read every diff**, run **build/tests**, and say no to clever ideas that break **serialization**, **null** rules, or **Salesforce** contracts. |
@@ -142,66 +150,162 @@ This is part of the job, not a party trick. I use **AI** like a fast **senior pa
 
 ## Visuals & diagrams
 
-*Below: **Mermaid** (GitHub renders it) plus a few **SVG** cards from public services—**dracula**-ish colors so it doesn’t look like five different themes had a fight. The **pie** is **not** my timesheet; it’s a rough “where attention goes” sketch. **Commits-by-hour** uses `utcOffset=2`—change it if your brain commits in another timezone.*
+*The **Mermaid** blocks below use **fabricated demo data**—numbers, dates, and labels are there to show what “rich” charts look like in a profile README, not to report real KPIs. Further down, **image widgets** pull **live public GitHub** data (stats, streak, activity graph, etc.); treat those as the real signal unless you swap them off later.*
 
-### Where engineering attention goes (illustrative)
+### Mock focus mix (pie — demo data)
 
 ```mermaid
 pie showData
-    title Focus mix (not time tracking)
-    "Backend and integrations" : 35
-    "CRM and data contracts" : 25
-    "Frontend and UX" : 20
-    "DevOps and observability" : 12
-    "Docs and API specs" : 8
+    title Synthetic focus split (sums to 100 — not your calendar)
+    "Java services & integrations" : 22
+    "Salesforce / CRM contracts" : 18
+    "TypeScript & React product UI" : 16
+    "AWS & networking (CFN, R53, CDN)" : 12
+    "Risk & decisioning paths" : 10
+    "Observability & incidents" : 8
+    "Docs, OpenAPI, Confluence" : 7
+    "AI tooling & prompts" : 7
 ```
 
-### AI in the PR loop
+### Mock throughput (line — demo data)
+
+```mermaid
+xychart-beta
+    title "Synthetic merged PRs per week (fake trend)"
+    x-axis [W01, W02, W03, W04, W05, W06, W07, W08]
+    y-axis "Count" 0 --> 40
+    line [8, 12, 10, 18, 14, 22, 19, 26]
+```
+
+### Mock release train (Gantt — demo data)
+
+```mermaid
+gantt
+    title Illustrative milestone window (not a real roadmap)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %d
+    section Risk platform
+    Load test window         :crit, load1, 2026-02-03, 5d
+    Hotfix buffer            :buffer, 2026-02-10, 3d
+    section CRM
+    Picklist alignment       :crm1, 2026-02-01, 7d
+    Shadow traffic ramp      :crm2, after crm1, 4d
+    section Edge
+    CDN cache rules          :edge1, 2026-02-05, 6d
+```
+
+### AI + human PR loop (sequence — demo labels)
 
 ```mermaid
 sequenceDiagram
-    participant Dev as Developer
-    participant Cursor as Cursor AI
+    autonumber
+    participant Dev as You
+    participant IDE as Cursor
+    participant GPT as ChatGPT / Claude
     participant GH as GitHub
     participant Copilot as Copilot
-    Dev->>Cursor: Refactor / explain / plan
-    Cursor-->>Dev: Diffs and edits
-    Dev->>GH: Push branch + open PR
-    GH->>Copilot: Review suggestions
-    Copilot-->>Dev: Inline comments
-    Dev->>GH: Fixes + resolve threads + merge when ready
+    participant CI as CI
+    Dev->>IDE: Context + goal (files, ticket)
+    IDE-->>Dev: Patch + explanation
+    Dev->>GPT: Sanity-check edge case wording
+    GPT-->>Dev: Suggested guardrails (edited)
+    Dev->>GH: Push branch, open PR
+    GH->>Copilot: Review pass
+    Copilot-->>Dev: Nits + test idea
+    Dev->>GH: Fix + resolve threads
+    GH->>CI: Workflow
+    CI-->>Dev: Green / red (you own red)
+    Dev->>GH: Merge when humans agree
 ```
 
-### Stack map (mindmap)
+### Stack & concerns (mindmap — demo layout)
 
 ```mermaid
 mindmap
-  root((Engineering))
-    Web
-      React
-      TypeScript
-      Figma
-      MCP
-      Node
-    Enterprise
-      Java
-      JAX-RS
+  root((Delivery))
+    Experience
+      React 18
+      Vite
+      Figma tokens
+      MCP in IDE
+    Backend
+      Java modules
+      Jersey APIs
+      Risk engine
+      SQS handoffs
+    Data & CRM
       Salesforce
-    Platform
-      AWS
-      Kubernetes
-      Helm
+      MySQL paths
+      Cache layers
+    Cloud
+      Lambda
+      Step Functions
+      CloudWatch
+      S3 + CloudFront
     Quality
-      Tests
-      Linting
-      OpenAPI
-    AI engineering
-      Models
-      Guardrails
-      MCP
+      JUnit
+      Contract tests
+      OpenAPI diff
+    AI
+      Cursor
+      Codex
+      Claude
+      ChatGPT
 ```
 
-### Contribution activity & profile cards
+### Mock service map (flowchart — demo)
+
+```mermaid
+flowchart TB
+    subgraph clients["Clients"]
+        U[Web app]
+        O[Ops tooling]
+    end
+    subgraph edge["Edge"]
+        CF[CloudFront]
+        R53[Route 53]
+    end
+    subgraph compute["Compute"]
+        L[Lambda fleet]
+        SF[Step Functions]
+    end
+    subgraph data["Data"]
+        S3[(S3 artifacts)]
+        TS[(Timestream / metrics)]
+        C[ElastiCache]
+    end
+    U --> CF --> L
+    O --> R53 --> SF
+    L --> S3
+    SF --> C
+    L --> TS
+```
+
+### Mock git graph (demo branches)
+
+```mermaid
+gitGraph
+    commit id: "main: baseline"
+    branch feature_risk
+    checkout feature_risk
+    commit id: "fix null overlay"
+    commit id: "tests: edge payloads"
+    checkout main
+    merge feature_risk
+    branch hotfix_crm
+    checkout hotfix_crm
+    commit id: "picklist guard"
+    checkout main
+    merge hotfix_crm
+```
+
+---
+
+### Live GitHub widgets (real public data)
+
+*These images call third-party services that read **your public GitHub** profile—stars, languages, streak, contribution graph, etc. They are **not** the mock Mermaid section above.*
+
+#### Contribution activity & profile cards
 
 <div align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=tomm1990&theme=dracula&hide_border=true&area=true" alt="GitHub contribution activity graph" />
