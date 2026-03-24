@@ -150,79 +150,71 @@ Alongside **Cursor**, I reach for **ChatGPT**, **Anthropic Claude**, and **OpenA
 
 ## Visuals & diagrams
 
-*The **Mermaid** blocks below use **fabricated demo data**—numbers, dates, and labels are there to show what “rich” charts look like in a profile README, not to report real KPIs. Further down, **image widgets** pull **live public GitHub** data (stats, streak, activity graph, etc.); treat those as the real signal unless you swap them off later.*
-
-### Mock focus mix (pie — demo data)
+### How I think about attention (illustrative)
 
 ```mermaid
 pie showData
-    title Synthetic focus split (sums to 100 — not your calendar)
-    "Java services & integrations" : 22
-    "Salesforce / CRM contracts" : 18
-    "TypeScript & React product UI" : 16
-    "AWS & networking (CFN, R53, CDN)" : 12
-    "Risk & decisioning paths" : 10
-    "Observability & incidents" : 8
-    "Docs, OpenAPI, Confluence" : 7
-    "AI tooling & prompts" : 7
+    title Attention model — illustrative, not telemetry (sums to 100)
+    "AI & LLM-assisted delivery" : 24
+    "Architecture & contracts" : 22
+    "Platform & AWS" : 18
+    "Backend & integrations (Java)" : 14
+    "Salesforce / CRM" : 10
+    "Product UI (TS / React)" : 8
+    "Quality, tests, observability" : 4
 ```
 
-### Mock throughput (line — demo data)
-
-```mermaid
-xychart-beta
-    title "Synthetic merged PRs per week (fake trend)"
-    x-axis [W01, W02, W03, W04, W05, W06, W07, W08]
-    y-axis "Count" 0 --> 40
-    line [8, 12, 10, 18, 14, 22, 19, 26]
-```
-
-### Mock release train (Gantt — demo data)
+### Architecture and guardrails (illustrative timeline)
 
 ```mermaid
 gantt
-    title Illustrative milestone window (not a real roadmap)
+    title Illustrative planning horizon — not a committed roadmap
     dateFormat  YYYY-MM-DD
     axisFormat  %b %d
-    section Risk platform
-    Load test window         :crit, load1, 2026-02-03, 5d
-    Hotfix buffer            :buffer, 2026-02-10, 3d
-    section CRM
-    Picklist alignment       :crm1, 2026-02-01, 7d
-    Shadow traffic ramp      :crm2, after crm1, 4d
-    section Edge
-    CDN cache rules          :edge1, 2026-02-05, 6d
+    section Architecture
+    ADR & boundary review     :arch1, 2026-02-01, 6d
+    Contract test hardening   :arch2, after arch1, 5d
+    section AI guardrails
+    Prompt & MCP review       :ai1, 2026-02-03, 5d
+    Human-in-the-loop checks  :ai2, after ai1, 4d
+    section Platform
+    CDN & DNS alignment       :pl1, 2026-02-05, 6d
+    Lambda / Step rollout     :pl2, after pl1, 5d
 ```
 
-### AI + human PR loop (sequence — demo labels)
+### AI-assisted delivery loop (illustrative)
 
 ```mermaid
 sequenceDiagram
     autonumber
     participant Dev as You
-    participant IDE as Cursor
-    participant GPT as ChatGPT / Claude
+    participant IDE as "Cursor + MCP"
+    participant LLM as ChatGPT / Claude / Codex
     participant GH as GitHub
     participant Copilot as Copilot
     participant CI as CI
-    Dev->>IDE: Context + goal (files, ticket)
-    IDE-->>Dev: Patch + explanation
-    Dev->>GPT: Sanity-check edge case wording
-    GPT-->>Dev: Suggested guardrails (edited)
-    Dev->>GH: Push branch, open PR
-    GH->>Copilot: Review pass
-    Copilot-->>Dev: Nits + test idea
-    Dev->>GH: Fix + resolve threads
-    GH->>CI: Workflow
-    CI-->>Dev: Green / red (you own red)
-    Dev->>GH: Merge when humans agree
+    Dev->>IDE: Goal, context, files
+    IDE-->>Dev: Patches + rationale
+    Dev->>LLM: Challenge edge cases / wording
+    LLM-->>Dev: Guardrails (you edit)
+    Dev->>GH: Branch + PR
+    GH->>Copilot: Review
+    Copilot-->>Dev: Nits + tests
+    Dev->>GH: Fixes, resolve threads
+    GH->>CI: Pipeline
+    CI-->>Dev: Green or red
+    Dev->>GH: Merge when team agrees
 ```
 
-### Stack & concerns (mindmap — demo layout)
+### Leadership, stack, and platform (mindmap)
 
 ```mermaid
 mindmap
-  root((Delivery))
+  root((Leadership and delivery))
+    Leadership
+      Roadmaps
+      ADRs
+      Stakeholder clarity
     Experience
       React 18
       Vite
@@ -253,10 +245,13 @@ mindmap
       ChatGPT
 ```
 
-### Mock service map (flowchart — demo)
+### Platform map (illustrative)
 
 ```mermaid
 flowchart TB
+    subgraph ide["IDE + MCP"]
+        MCP[MCP to Figma / tools]
+    end
     subgraph clients["Clients"]
         U[Web app]
         O[Ops tooling]
@@ -266,14 +261,15 @@ flowchart TB
         R53[Route 53]
     end
     subgraph compute["Compute"]
-        L[Lambda fleet]
+        L[Lambda]
         SF[Step Functions]
     end
     subgraph data["Data"]
-        S3[(S3 artifacts)]
-        TS[(Timestream / metrics)]
+        S3[(S3)]
+        TS[(Timestream)]
         C[ElastiCache]
     end
+    MCP --> U
     U --> CF --> L
     O --> R53 --> SF
     L --> S3
@@ -281,52 +277,28 @@ flowchart TB
     L --> TS
 ```
 
-### Mock git graph (demo branches)
+### Release-style history (illustrative git graph)
 
 ```mermaid
 gitGraph
-    commit id: "main: baseline"
-    branch feature_risk
-    checkout feature_risk
-    commit id: "fix null overlay"
+    commit id: "main: ADR baseline"
+    branch platform_risk
+    checkout platform_risk
+    commit id: "risk SLO & HTTP contracts"
     commit id: "tests: edge payloads"
     checkout main
-    merge feature_risk
+    merge platform_risk
     branch hotfix_crm
     checkout hotfix_crm
-    commit id: "picklist guard"
+    commit id: "CRM picklist guard"
     checkout main
     merge hotfix_crm
 ```
 
----
-
-### Live GitHub widgets (real public data)
-
-*These images call third-party services that read **your public GitHub** profile—stars, languages, streak, contribution graph, etc. They are **not** the mock Mermaid section above.*
-
-#### Contribution activity & profile cards
+### Public contribution activity (live GitHub data)
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=tomm1990&theme=dracula&hide_border=true&area=true" alt="GitHub contribution activity graph" />
-</div>
-
-<div align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tomm1990&theme=dracula" alt="GitHub profile summary details card" />
-      </td>
-      <td align="center">
-        <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=tomm1990&theme=dracula" alt="GitHub repos per language card" />
-      </td>
-    </tr>
-    <tr>
-      <td align="center" colspan="2">
-        <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=tomm1990&theme=dracula&utcOffset=2" alt="Commits by time of day" />
-      </td>
-    </tr>
-  </table>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=tomm1990&theme=github&hide_border=true&area=true" alt="GitHub contribution activity graph" />
 </div>
 
 ---
@@ -337,23 +309,23 @@ gitGraph
   <table>
     <tr>
       <td align="center">
-        <img src="https://github-readme-stats.vercel.app/api?username=tomm1990&theme=dracula&hide_border=true&include_all_commits=true&count_private=false&show_icons=true&hide_rank=true" alt="Tom Goldberg GitHub stats" />
+        <img src="https://github-readme-stats.vercel.app/api?username=tomm1990&theme=default&hide_border=true&count_private=false&show_icons=true&hide_rank=true&cache_seconds=1800" alt="Tom Goldberg GitHub stats" />
       </td>
       <td align="center">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tomm1990&theme=dracula&hide_border=true&include_all_commits=true&count_private=false&layout=compact&langs_count=8" alt="Most used languages on GitHub" />
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tomm1990&theme=default&hide_border=true&count_private=false&layout=compact&langs_count=8&cache_seconds=1800" alt="Most used languages on GitHub" />
       </td>
     </tr>
   </table>
 </div>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com/?user=tomm1990&theme=dracula&hide_border=true" alt="GitHub contribution streak" />
+  <img src="https://streak-stats.demolab.com/?user=tomm1990&theme=default&hide_border=true" alt="GitHub contribution streak" />
 </div>
 
 ## 🏆 GitHub trophies
 
 <div align="center">
-  <img src="https://gh-trophy.cdnsoft.net/?username=tomm1990&theme=dracula&no-frame=false&no-bg=true&margin-w=15&margin-h=15&rank=SECRET,SSS,SS,S,AAA,AA,A&column=4" alt="GitHub profile trophies" />
+  <img src="https://gh-trophy.cdnsoft.net/?username=tomm1990&theme=flat&no-frame=false&no-bg=false&margin-w=15&margin-h=15&rank=SECRET,SSS,SS,S,AAA,AA,A&column=4" alt="GitHub profile trophies" />
 </div>
 
 <!-- Trophies: official github-profile-trophy.vercel.app often returns 503; gh-trophy.cdnsoft.net is a community mirror from upstream load-balancer list. -->
