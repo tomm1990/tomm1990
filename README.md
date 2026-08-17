@@ -125,10 +125,10 @@ Main lane: **TypeScript**, **React**, and **Node**. Also deep in **enterprise Ja
   <table>
     <tr>
       <td align="center">
-        <img src="https://github-readme-stats.shion.dev/api?username=tomm1990&theme=default&hide_border=true&count_private=false&show_icons=true&hide_rank=true" alt="Tom Goldberg GitHub stats" />
+        <img src="https://github-stats-extended.vercel.app/api?username=tomm1990&theme=default&hide_border=true&count_private=false&show_icons=true&hide_rank=true" alt="Tom Goldberg GitHub stats" />
       </td>
       <td align="center">
-        <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=tomm1990&theme=default&hide_border=true&count_private=false&layout=compact&langs_count=8" alt="Most used languages on GitHub" />
+        <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=tomm1990&theme=default&hide_border=true&count_private=false&layout=compact&langs_count=8" alt="Most used languages on GitHub" />
       </td>
     </tr>
   </table>
@@ -140,7 +140,7 @@ Main lane: **TypeScript**, **React**, and **Node**. Also deep in **enterprise Ja
   <img src="https://trophygithubreadmelang.cybee.dpdns.org/?username=tomm1990&theme=flat&no-frame=false&no-bg=false&margin-w=15&margin-h=15&rank=SECRET,SSS,SS,S,AAA,AA,A&column=4" alt="GitHub profile trophies" />
 </div>
 
-<!-- Stats: official vercel.app often paused; shion.dev mirror — omit cache_seconds (1800 was serving a cached error SVG). Trophies: official Vercel often disabled; cybee volunteer mirror from ryo-ma load-balancing list. -->
+<!-- Stats: use stats-organization/github-stats-extended (maintained successor); classic vercel.app/shion mirrors were erroring. Trophies: cybee volunteer mirror from ryo-ma load-balancing list. -->
 
 ---
 
